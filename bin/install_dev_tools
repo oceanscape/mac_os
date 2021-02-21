@@ -11,3 +11,7 @@ if [[ "$xcode_response" != "y" ]]; then
   printf "ERROR: Xcode CLI tools must be installed before proceeding.\n"
   exit 1
 fi
+
+if [[ "$(get_cpu)" == "M1" ]]; then
+  softwareupdate --install-rosetta
+fi
